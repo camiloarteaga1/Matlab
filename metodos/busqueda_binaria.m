@@ -20,9 +20,9 @@ if (y(a1)<0 && y(b1)>0) || (y(a1)>0 && y(b1)<0)
         k=k+1;
         root2=root;
         if state==0
-            inf=eval([k,a1,b1,y(a1),y(b1),root,y(root),b1-a1])
+            eval([k,a1,b1,y(a1),y(b1),root,y(root),b1-a1])
         else
-            inf=eval([k,b1,a1,y(b1),y(a1),root,y(root),a1-b1])
+            eval([k,b1,a1,y(b1),y(a1),root,y(root),a1-b1])
         end
 
         if y(root)<0

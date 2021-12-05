@@ -1,12 +1,19 @@
 clear all
 a=input('x1 inicial= ');
 b=input('x2 final= ');
-syms x y(x) root
+syms x1 y(x) root k
 y(x)=input('y fun= ');
-
-while abs(y(x1))>0.0001
+k=0;
+x1=a;
+fprintf('| k | a | b | f(a) | f(b) | m | root | f(root) |')
+while abs(y(x1))>0.0005
+    m=(y(b)-y(a))/(b-a);
+    x1=a-(y(a)/m);
     
-    x1=x1-(y(a)*(b-a))/(y(b)-y(a));
+    eval([k,a,b,y(a),y(b),m,x1,y(x1)])
+    
+    k=k+1;
+    
     
     if y(a)<0
         
@@ -35,8 +42,6 @@ while abs(y(x1))>0.0001
     
        
 
-        fprintf('root = %s \n ',eval(x1))
-        fprintf('y(root) = %s \n ',eval(y(x1)))
 
 end
         

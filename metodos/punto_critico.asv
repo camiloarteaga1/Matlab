@@ -1,12 +1,11 @@
 clear all
 a=input('lim inf = ');
 b=input('lim sup= ');
-syms x y(x) root root2 c
+syms x y(x) root root2 k
 y(x)=input('g fun= ');
 x1=(a+b)/2;
-c=1;
-        
-        
+k=0;
+disp('| k | x | f(x) |');
         
 while true 
     
@@ -20,7 +19,8 @@ while true
         diff=abs(y(x1)-x1);
         x2=x1;
         x1=y(x1);
-        c=c+1;
+        k=k+1;
+        eval([k,x1,y(x1)])
 
         diff2=diff;
         diff=abs(y(x1)-x1);
@@ -29,11 +29,8 @@ while true
             break
             
         end
-        
-
+        x1=round(x1,6);
         end
-        fprintf('val = %s \n ',eval(x1))
-        fprintf('iteraciones = %s \n ',c)
 
         break
         
@@ -44,7 +41,9 @@ while true
             
             diff=abs(G(x1)-x1);
             x1=G(x1);
-            c=c+1;
+            k=k+1;
+            eval([k,x1,y(x1)])
+
 
             diff2=diff;
             diff=abs(G(x1)-x1);
@@ -54,10 +53,11 @@ while true
 
             end
         
-
+        x1=round(x1,5);
+        
         end
-        fprintf('val = %s \n ',eval(x1))
-        fprintf('iteraciones = %s \n ',c)
+        
+        
         
 
         break
