@@ -4,6 +4,7 @@ b1=input('lim sup= ');
 syms x y(x) root root2
 y(x)=input('y fun= ');
 state=0;
+n=3;
 if y(a1)>0
     z1=a1;
     a1=b1;
@@ -20,9 +21,9 @@ if (y(a1)<0 && y(b1)>0) || (y(a1)>0 && y(b1)<0)
         k=k+1;
         root2=root;
         if state==0
-            eval([k,a1,b1,y(a1),y(b1),root,y(root),b1-a1])
+            round(eval([k,a1,b1,y(a1),y(b1),root,y(root),b1-a1]),n)
         else
-            eval([k,b1,a1,y(b1),y(a1),root,y(root),a1-b1])
+            round(eval([k,b1,a1,y(b1),y(a1),root,y(root),a1-b1]),n)
         end
 
         if y(root)<0

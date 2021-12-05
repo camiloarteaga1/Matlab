@@ -9,6 +9,7 @@ fprintf('| k | a | b | f(a) | f(b) | m | root | f(root) |')
 while abs(y(x1))>0.0005
     m=(y(b)-y(a))/(b-a);
     x1=a-(y(a)/m);
+    x1=round(x1,6);
     
     eval([k,a,b,y(a),y(b),m,x1,y(x1)])
     

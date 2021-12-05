@@ -4,7 +4,7 @@ syms x y(x) root root2 x2
 y(x)=input('y fun= ');
 Dy(x)=diff(y(x),x);
 n=3;
-k=1;
+k=0;
 disp('| k | x | f(x) | df(x) | (f(x))/(df(x)) |');
 while true 
     
@@ -15,16 +15,16 @@ while true
     if choice==1
         
         
-        while abs(y(x1))>0.00001
-        round(eval([k,x1,y(x1),Dy(x1),y(x1)/Dy(x1)]),n)
+        while abs(y(x1))>0.0001
         k=k+1;
         x1=x1-(y(x1)/Dy(x1));
         x1=round(x1,6);
+        round(eval([k,x1,y(x1),Dy(x1),y(x1)/Dy(x1)]),n)
 
 
         
         end
-        round(eval([k,x1,y(x1),Dy(x1),y(x1)/Dy(x1)]),n)
+        
 
         break
         
@@ -34,14 +34,15 @@ while true
         Du(x)=diff(u(x),x);
         
         while abs(u(x1))>0.0001
-        round(eval([k,x1,u(x1),Du(x1),u(x1)/Du(x1)]),n)
+    
         x1=x1-(u(x1)/Du(x1));
-        x1=round(x1,6);
 
+        fprintf('root = %s \n ',eval(x1))
+        fprintf('y(root) = %s \n ',eval(u(x1)))
         
         end
         
-        round(eval([k,x1,u(x1),Du(x1),y(x1)/Du(x1)]),n)
+
         break
         
     else 
