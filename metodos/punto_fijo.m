@@ -4,7 +4,7 @@ b=input('lim sup= ');
 syms x y(x) root root2 k
 y(x)=input('g fun= ');
 x1=(a+b)/2;
-k=0;
+k=1;
 n=3;
 disp('| k | x | f(x) |');
         
@@ -40,6 +40,7 @@ while true
     elseif choice==2
         
         m=(y(b)-y(a))/(b-a);
+        lamada=m/(m-1);
         G(x)=(m*x-y(x))/(m-1);
         round(eval([k,x1,y(x1)]),3)
         
