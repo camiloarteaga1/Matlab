@@ -3,17 +3,23 @@ a=input('x1 inicial= ');
 b=input('x2 final= ');
 syms x1 y(x) root k
 y(x)=input('y fun= ');
-k=0;
+k=1;
 x1=a;
-fprintf('| k | a | b | f(a) | f(b) | m | root | f(root) |')
+fprintf('| k | root | f(root) | m(root) | f(root)/m (root)|')
+m=(y(b)-y(a))/(b-a);
+x1=a-(y(a)/m);
+x1=round(x1,6);
+round(eval([k,a,y(a),m,y(a)/m]),3)
+k=2;
+round(eval([k,b,y(b),m,y(b)/m]),3)
 while abs(y(x1))>0.00001
     m=(y(b)-y(a))/(b-a);
     x1=a-(y(a)/m);
     x1=round(x1,6);
-    
-    eval([k,a,b,y(a),y(b),m,x1,y(x1)])
-    
     k=k+1;
+    round(eval([k,x1,y(x1),m,y(x1)/m]),3)
+    
+    
     
     
     if y(a)<0
@@ -45,4 +51,3 @@ while abs(y(x1))>0.00001
 
 
 end
-        

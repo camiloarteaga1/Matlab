@@ -52,11 +52,11 @@ while true
             diff2=diff;
             diff=abs(G(x1)-x1);
             
-            if (diff > diff2)
-                fprintf('diverge \n')
-                break
+            %if (diff > diff2)
+                %fprintf('diverge \n')
+                %break
 
-            end
+            %end
         
         x1=round(x1,6);
         round(eval([k,x1,y(x1)]),n)
