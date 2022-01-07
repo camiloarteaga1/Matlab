@@ -28,7 +28,22 @@ while true
         break
         
     elseif choice==2
-    %pronto
+    if especioVectorial==1
+        while true
+            fprintf('Ingresar: \n 1. evaluada \n else. no evaluada \n ')
+        choice=input('\n opcion: ');
+
+        if choice==1
+            int(dL_u1(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu3(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup)
+
+        else
+            int(dL_u1(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu3(L_u1(t),L_u2(t),L_u3(t)))
+        end
+        end
+    else
+        fprintf('no hay espacio vectoial')
+    end
+
         
     else 
         

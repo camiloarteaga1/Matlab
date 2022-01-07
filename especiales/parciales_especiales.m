@@ -47,30 +47,34 @@ while true
 end
 
 [h1,h2,h3]
-
+especioVectorial=0;
 while true
     
-        fprintf('Ingresar: \n 1. gradiente \n 2. div \n 3. rot \n 4. diff sup \n 5. diff vol \n 6. Integral de linea \n  Cualquier numero para salir')
+        fprintf('Ingresar: \n 1. campo escalar \n 2. campo vectorial en espacio cordenado \n 4. diff sup \n 5. diff vol \n 6. Integral de linea \n  Cualquier numero para salir')
         choice=input('\n opcion: ');
         if choice==1
             
-            gradiente_fun_escalar();
+            syms funEsc(u1,u2,u3)
+
+            funEsc=input('ingrese la funcion F(u1,u2,u3)= ');
             
         elseif choice==2
-            div();
-            
+
+            syms fu1(u1,u2,u3) fu2(u1,u2,u3) fu3(u1,u2,u3)
+            especioVectorial=1;
+            fu1(u1,u2,u3)=input('funcion escalar en la direccion u1= ');
+            fu2(u1,u2,u3)=input('funcion escalar en la direccion u2= ');
+            fu3(u1,u2,u3)=input('funcion escalar en la direccion u3= ');
+
         elseif choice==3
-            rot();
-                
-        elseif choice==4
             
             ds=simplify([h2*h3,h1*h3,h2*h1])
             
-        elseif choice==5
+        elseif choice==4
             
             dv=simplify(h1*h2*h3)
             
-        elseif choice==6
+        elseif choice==5
             
             int_lin();
         else
