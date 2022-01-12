@@ -50,7 +50,7 @@ end
 especioVectorial=0;
 while true
     
-        fprintf('Ingresar: \n 1. campo escalar \n 2. campo vectorial en espacio cordenado \n 4. diff sup \n 5. diff vol \n 6. Integral de linea \n  Cualquier numero para salir')
+        fprintf('Ingresar: \n 1. campo escalar \n 2. campo vectorial en espacio cordenado \n 3. diff sup \n 4. diff vol \n 5. Integral de linea \n  Cualquier numero para salir')
         choice=input('\n opcion: ');
         if choice==1
             

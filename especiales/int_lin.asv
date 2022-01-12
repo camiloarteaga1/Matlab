@@ -9,12 +9,12 @@ t_sup=input('lim sup t= ');
 
 %derivadas de Ui en duncion de t, tam,bien es el vector tangenciual a la
 %trayectiria 
-dL_u1(t)=diff(L_u1(t),t)*h1(L_u1,L_u2,L_u3);
-dL_u2(t)=diff(L_u2(t),t)*h2(L_u1,L_u2,L_u3);
-dL_u3(t)=diff(L_u3(t),t)*h3(L_u1,L_u2,L_u3);
+dL_u1(t)=diff(L_u1(t),t);
+dL_u2(t)=diff(L_u2(t),t);
+dL_u3(t)=diff(L_u3(t),t);
 
 %diferenial de longitud
-d_L(t)=sqrt( (dL_u1(t))^2 + (dL_u2(t))^2 + (dL_u3(t))^2 );
+d_L(t)=sqrt( (h1(L_u1(t),L_u2(t),L_u3(t))*dL_u1(t))^2 + (h2(L_u1(t),L_u2(t),L_u3(t))*dL_u2(t))^2 + (h3(L_u1(t),L_u2(t),L_u3(t))*dL_u3(t))^2 );
 
 while true 
     
@@ -40,13 +40,13 @@ while true
 
             if choice==1
                 int(dL_u1(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu3(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup)
-                break
+
             else
                 int(dL_u1(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu3(L_u1(t),L_u2(t),L_u3(t)))
-                break
+
             end
 
-        break
+
         end
         else
         fprintf('no hay espacio vectoial')
@@ -71,24 +71,15 @@ while true
                 if choice==1
 
                     fXl_u1(t)=int(-dL_u2(t)*fu3(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu2(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup);
-                    fXl_u2(t)=int(-dL_u3(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u1(t)*fu3(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup);
-                    fXl_u3(t)=int(-dL_u1(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu1(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup);
-                    fprintf('[fXl_u1,fXl_u2,fXl_u3]')
-                    simplify([fXl_u1,fXl_u2,fXl_u3])
-                    break
+                    fXl_u1(t)=int(-dL_u3(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u1(t)*fu3(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup);
+                    fXl_u1(t)=int(-dL_u2(t)*fu3(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu2(L_u1(t),L_u2(t),L_u3(t)),t,t_inf,t_sup);
 
                 else
                     
-                    fXl_u1(t)=int(-dL_u2(t)*fu3(L_u1(t),L_u2(t),L_u3(t))+dL_u3(t)*fu2(L_u1(t),L_u2(t),L_u3(t)),t);
-                    fXl_u2(t)=int(-dL_u3(t)*fu1(L_u1(t),L_u2(t),L_u3(t))+dL_u1(t)*fu3(L_u1(t),L_u2(t),L_u3(t)),t);
-                    fXl_u3(t)=int(-dL_u1(t)*fu2(L_u1(t),L_u2(t),L_u3(t))+dL_u2(t)*fu1(L_u1(t),L_u2(t),L_u3(t)),t);
-                    fprintf('[fXl_u1,fXl_u2,fXl_u3]')
-                    simplify([fXl_u1,fXl_u2,fXl_u3])
-                    break
 
                 end
 
-            break
+
             end
         else
             fprintf('no hay espacio vectoial')
