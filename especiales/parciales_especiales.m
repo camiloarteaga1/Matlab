@@ -50,13 +50,15 @@ end
 especioVectorial=0;
 while true
     
-        fprintf('Ingresar: \n 1. campo escalar \n 2. campo vectorial en espacio cordenado \n 3. diff sup \n 4. diff vol \n 5. Integral de linea \n  Cualquier numero para salir')
+        fprintf('Ingresar: \n 1. campo escalar {grad} \n 2. campo vectorial en espacio cordenado \n 3. diff sup \n 4. diff vol \n 5. Integral de linea \n 5. Integral de sup \n  Cualquier numero para salir')
         choice=input('\n opcion: ');
         if choice==1
             
             syms funEsc(u1,u2,u3)
-
+            hayFE=1;
             funEsc=input('ingrese la funcion F(u1,u2,u3)= ');
+
+            gradiente_fun_escalar();
             
         elseif choice==2
 
@@ -77,6 +79,11 @@ while true
         elseif choice==5
             
             int_lin();
+
+            elseif choice==6
+            
+            int_sup();
+
         else
             error('Programa terminado correctamente')
                        
