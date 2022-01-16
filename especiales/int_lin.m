@@ -98,7 +98,7 @@ while true
         
     else 
         
-        error('Programa terminado correctamente')
+        break
         
         
     end
