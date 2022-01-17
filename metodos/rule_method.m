@@ -6,7 +6,7 @@ y(x)=input('y fun= ');
 k=0;
 x1=a;
 fprintf('| k | a | b | f(a) | f(b) | m | root | f(root) |')
-while abs(y(x1))>0.00001
+while abs(y(x1))>0.0001
     m=(y(b)-y(a))/(b-a);
     x1=a-(y(a)/m);
     x1=round(x1,6);
