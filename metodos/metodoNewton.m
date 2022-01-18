@@ -63,6 +63,7 @@ syms F
 %encontrando la sol
 while k<n
     col=1;
+    resultado
     while col<=dim
         row=1;
         F=hi(col);
