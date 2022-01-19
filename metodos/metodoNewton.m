@@ -85,6 +85,6 @@ while k<n
     k=k+1;
 
 end
-resultado
+round(resultado,3)
 
 
