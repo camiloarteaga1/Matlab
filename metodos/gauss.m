@@ -12,6 +12,7 @@ i=1;
 
 while i<=length(fun)
     if length(solve(fun(i),var(i)))==1
+
     Fun(i)=solve(fun(i),var(i));
 
     else  
@@ -42,7 +43,7 @@ resultados=inicial;
 
 
 
-k=10;
+k=11;
 iteracion=0;
 
 while iteracion<k
@@ -67,4 +68,4 @@ while iteracion<k
     iteracion=iteracion+1;
 
 end
-resultados
+round(resultados,3)
