@@ -1,18 +1,18 @@
 function x = funciones(x)
-    x=x;
+    x=x*9;
 end
 
 function mag = magVec(vec)
-    size=length(vec)
+    size=length(vec);
     i=1;
-    mag=0
+    mag=0;
     while i<=size
 
     mag=mag+vec(i)^2;
 
     end
 
-    mag=mag^(1/2)
+    mag=mag^(1/2);
 
 end
 
