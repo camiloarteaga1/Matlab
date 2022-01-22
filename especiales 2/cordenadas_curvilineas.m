@@ -44,18 +44,37 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
     
         funE=input('f(u1,u2,u3...): ')
 
-        gradFesc(Fe,var,hi);
+        gradFE=gradFesc(Fe,var,hi);
     
     elseif choice ==2
         syms divFV rotFV
-        funV=input('[f(u1,u2,u3...,F(u1,u2,u3...),...]: ')
+        funV=input('[f(u1,u2,u3...,F2(u1,u2,u3...),...]: ')
 
         [divFV,rotFV]=funDivRot(funV,var,hi);
     
     elseif choice ==3
-    
+        syms t
+        R_t=input('[f(t),f2(t),...]: ')
+        dR=diffVec(R_t,t,hi);
+        magdr=magVec(dR);
+        limites_t=input('[a,b]: ')
+
+
     elseif choice ==4
-    
+        syms t1 t2
+        choice=input(' 1.vector R \n 2.funcion escalar=c \n: ')
+        if choice==1;
+            R_t1_t2=input('[f(t1,t2),f2(t1,t2),...]: ')
+            dR1=diffVec(R_t1_t2,t1,hi);
+            dR2=diffVec(R_t1_t2,t2,hi);
+            ds=cross(dR1,dR2);
+        else
+            %todo tuyo cami 
+        end
+        magds=magVec(ds);
+        limites_t1=input('[a,b]: ')
+        limites_t2=input('[a,b]: ')
+
     elseif choice ==5
     
     else
