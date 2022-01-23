@@ -7,13 +7,13 @@ while true
         break
     elseif choice==2
 
-        int(int(FEdesp*magds,t1,limites_t1(1),limites_t1(1)),t2,limites_t2(1),limites_t2(2))
+        int(int(FEdesp*magds,t1,limites_t1(1),limites_t1(2)),t2,limites_t2(1),limites_t2(2))
 
         break
 
     elseif choice==3
 
-        int(int(dot(FVdesp,ds),t1,limites_t1(1),limites_t1(1)),t2,limites_t2(1),limites_t2(2))
+        int(int(dot(FVdesp,ds),t1,limites_t1(1),limites_t1(2)),t2,limites_t2(1),limites_t2(2))
 
         break
     elseif choice==4

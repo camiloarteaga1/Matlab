@@ -44,7 +44,7 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
     
         funE=input('f(u1,u2,u3...): ')
 
-        gradFE=gradFesc(Fe,var,hi);
+        gradFE=gradFesc(funE,var,hi)
     
     elseif choice ==2
         syms divFV rotFV
@@ -56,14 +56,16 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
         syms t
         R_t=input('[f(t),f2(t),...]: ');
         dR=diffVec(R_t,t,hi);
-        magdr=magVec(dR);
+        
         limites_t=input('[a,b]: ');
         FVdesp=funV;
         i=1;
         while i<=length(funV)
+            dR=subs(dR,var(i),R_t(i));
             FVdesp=subs(FVdesp,var(i),R_t(i));
             i=i+1;
         end
+        magdr=magVec(dR);
         intLin();
 
 
@@ -78,18 +80,22 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
         else
             %todo tuyo cami 
         end
-        magds=magVec(ds);
+        
         limites_t1=input('t1 lim [a,b]: ');
         limites_t2=input('t2 lim [a,b]: ');
         
         FVdesp=funV;
+        i=1;
         while i<=length(funV)
-
+            
+            ds=subs(ds,var(i),R_t1_t2(i));
             FVdesp=subs(FVdesp,var(i),R_t1_t2(i));
             i=i+1;
 
         end
+        magds=magVec(ds);
         FEdesp=funE;
+        i=1;
         while i<=length(funV)
 
             FEdesp=subs(FEdesp,var(i),R_t1_t2(i));
@@ -98,6 +104,7 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
         end
         intsup();
     elseif choice ==5
+        order=input('vatiables en orden [u3,u1,u2](ejemplo): ');
         limites_u1=input('u1 lim [a,b]: ');
         limites_u2=input('u2 lim [a,b]: ');
         limites_u3=input('u3 lim [a,b]: ');
