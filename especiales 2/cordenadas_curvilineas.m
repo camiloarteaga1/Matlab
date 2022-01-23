@@ -1,11 +1,10 @@
-var=[u1,u2,u3];
-funVar=[u1*cos(u2),u1*sin(u2),u3];
+var=input('[u1,u2,...]: ');
 while true
     choice=input('1.ingresar x(u1,u2,u3...)... \n else.ingresar los hi \n: ');
 
     if choice==1
 
-        %funVar=input('[f(u1,u2,u3...,F(u1,u2,u3...),...]: ')
+        funVar=input('[f(u1,u2,u3...,F(u1,u2,u3...),...]: ');
 
         if length(funVar)==length(var)
             i=1;
@@ -34,7 +33,8 @@ while true
 end
 
 
-
+funE=1;
+funV=[1,1,1];
 
 while true
 
@@ -50,7 +50,7 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
         syms divFV rotFV
         funV=input('[f(u1,u2,u3...,F2(u1,u2,u3...),...]: ')
 
-        [divFV,rotFV]=funDivRot(funV,var,hi);
+        [divFV,rotFV]=funDivRot(funV,var,hi)
     
     elseif choice ==3
         syms t
@@ -58,6 +58,13 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
         dR=diffVec(R_t,t,hi);
         magdr=magVec(dR);
         limites_t=input('[a,b]: ');
+        FVdesp=funV;
+        i=1;
+        while i<=length(funV)
+            FVdesp=subs(FVdesp,var(i),R_t(i));
+            i=i+1;
+        end
+        intLin();
 
 
     elseif choice ==4

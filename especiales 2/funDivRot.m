@@ -4,7 +4,7 @@ while row<=3
     col=1;
     while col<=3
 
-        M(row,col)=diff(vecF(row),var(col)/hi(col));
+        M(row,col)=diff(vecF(row),var(col))/hi(col);
         col=col+1;
     end
     row=row+1;
