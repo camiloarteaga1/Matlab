@@ -54,17 +54,17 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
     
     elseif choice ==3
         syms t
-        R_t=input('[f(t),f2(t),...]: ')
+        R_t=input('[f(t),f2(t),...]: ');
         dR=diffVec(R_t,t,hi);
         magdr=magVec(dR);
-        limites_t=input('[a,b]: ')
+        limites_t=input('[a,b]: ');
 
 
     elseif choice ==4
         syms t1 t2
-        choice=input(' 1.vector R \n 2.funcion escalar=c \n: ')
+        choice=input(' 1.vector R \n 2.funcion escalar=c \n: ');
         if choice==1;
-            R_t1_t2=input('[f(t1,t2),f2(t1,t2),...]: ')
+            R_t1_t2=input('[f(t1,t2),f2(t1,t2),...]: ');
             dR1=diffVec(R_t1_t2,t1,hi);
             dR2=diffVec(R_t1_t2,t2,hi);
             ds=cross(dR1,dR2);
@@ -72,11 +72,29 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
             %todo tuyo cami 
         end
         magds=magVec(ds);
-        limites_t1=input('[a,b]: ')
-        limites_t2=input('[a,b]: ')
+        limites_t1=input('t1 lim [a,b]: ');
+        limites_t2=input('t2 lim [a,b]: ');
+        
+        FVdesp=funV;
+        while i<=length(funV)
 
+            FVdesp=subs(FVdesp,var(i),R_t1_t2(i));
+            i=i+1;
+
+        end
+        FEdesp=funE;
+        while i<=length(funV)
+
+            FEdesp=subs(FEdesp,var(i),R_t1_t2(i));
+            i=i+1;
+
+        end
+        intsup();
     elseif choice ==5
-    
+        limites_u1=input('u1 lim [a,b]: ');
+        limites_u2=input('u2 lim [a,b]: ');
+        limites_u3=input('u3 lim [a,b]: ');
+        intvol();
     else
     error('programa finalizado exitosamente');
     

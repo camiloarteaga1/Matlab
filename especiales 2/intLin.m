@@ -1,9 +1,9 @@
 while true
-    choice=input('1.V(F).V(ds)\n 2.V(F)xV(ds) \n 3.ds\n\n: ')
+    choice=input('1.V(F).V(dl)\n 2.V(F)xV(dl) \n 3.dl\n\n: ');
     if choice==1
         
         expretion=dot(funV,dR);
-        i=1
+        i=1;
         while i<=length(funV)
             expretion=subs(expretion,var(i),R_t(i));
             i=i+1;
@@ -12,7 +12,7 @@ while true
         
     elseif choice==2
         expretion=cross(funV,dR);
-        i=1
+        i=1;
         while i<=length(funV)
             expretion=subs(expretion,var(i),R_t(i));
             i=i+1;
