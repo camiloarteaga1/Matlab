@@ -93,6 +93,7 @@ choice=input([' 1.ingresar funcion escalar \n 2.ingresar funcion vectorial \n 3.
             i=i+1;
 
         end
+        ds
         magds=magVec(ds);
         FEdesp=funE;
         i=1;
