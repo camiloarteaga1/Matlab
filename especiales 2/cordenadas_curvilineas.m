@@ -21,7 +21,7 @@ while true
 
         hi=input('[h1,h2,...]: ')
 
-        if length(funVar)==length(hi)
+        if length(var)==length(hi)
 
             break
 
