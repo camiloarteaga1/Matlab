@@ -2,11 +2,13 @@ function F = lagrange(x,y)
     syms t
     k=1;
     F=0;
+    %se arma la funcion
     while k<=length(y)
         
         F=F+y(k)*Lsubi(x,k);
         k=1+k;
     end
+    %se plotea la funcion
     plot(x,y,'o');
     hold on
     G(t)=F;
@@ -16,7 +18,7 @@ function F = lagrange(x,y)
 
 
 end
-
+%halla el pol L
 function F = Lsubi(x,i)
     syms t
     k=1;

@@ -1,7 +1,7 @@
 function F = diferenciasNewton(x,y)
     syms t
     k=1;
-
+%arma un vector que pueda entender el algoritme de abajo
     while length(x)>=k
         limx(k,1)=x(k);
         limx(k,2)=x(k);
@@ -15,6 +15,7 @@ function F = diferenciasNewton(x,y)
     F=b(1);
     factM=1;
     hold on
+    %hac ela funcion
     while length(x)>k
         syms t
         factM=factM*(t-x(k));
@@ -33,7 +34,7 @@ function F = diferenciasNewton(x,y)
     plot(t,G(t));
 
 end
-
+%hace los Bi
 function [Dy,limx,B] = Bsubi(Dy,limx,B)
     if length(Dy)==1
 

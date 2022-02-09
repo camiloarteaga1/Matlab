@@ -2,6 +2,7 @@ function F=regPolinomial(x,y,n)
 
     k=1;
     M=ones(n+1);
+    %se arma la matriz
     while k<=2*n+1
     val=sumPow(x,k-1,ones(1,length(x),'uint16'));
     M=diag(M,val,k,n+1);
@@ -9,7 +10,7 @@ function F=regPolinomial(x,y,n)
 
     end
     k=1;
-    
+    %se arma el vector de respuestas
     while k<=n+1
         val=sumPow(x,k-1,y);
         r(k,1)=val;
@@ -20,11 +21,13 @@ function F=regPolinomial(x,y,n)
     sol=inv(M)*r;
     k=1;
     F=0;
+    %se hace la funcion
     while k<=n+1
         F=F+sol(k)*t^(k-1);
         k=k+1;
 
     end
+    %grafica
     plot(x,y,'o');
     hold on
     G(t)=F;
