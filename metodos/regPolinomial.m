@@ -4,7 +4,7 @@ function F=regPolinomial(x,y,n)
     M=ones(n+1);
     %se arma la matriz
     while k<=2*n+1
-    val=sumPow(x,k-1,ones(1,length(x),'uint16'));
+    val=sumPow(x,k-1,ones(1,length(x),'uint64'));
     M=diag(M,val,k,n+1);
     k=k+1;
 
