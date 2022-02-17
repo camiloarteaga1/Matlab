@@ -55,7 +55,7 @@ while col<=dim
 end
 
 syms k n
-n=10;
+n=100;
 k=0;
 
 resultado=inicial;
@@ -63,7 +63,7 @@ syms F
 %encontrando la sol
 while k<n
     col=1;
-    resultado
+    resultado;
     while col<=dim
         row=1;
         F=hi(col);
@@ -85,6 +85,6 @@ while k<n
     k=k+1;
 
 end
-round(resultado,3)
+round(resultado,5)
 
 
