@@ -1,7 +1,7 @@
 function val = derivateAprox(D,F,a,h)
-%DERIVATEAPROX is an aproximation of the funtion F(x)
-%   D is the order of the derivative a is the poiunt in wich the derivate
-%   is going to be eval h is the presicion
+%valor de la derivada a F(x)
+%   D es el orden de la derivada, a es el punto donde la derivada se va a
+%   evaluar, h inversamente proporcional a la presicion 
 
     syms x
         f(x)=F;
