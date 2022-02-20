@@ -1,18 +1,16 @@
-function eq = intSeg(x,y,g,I)
+function eq = intPSeg(x,y,g,I)
 %x=[datos] y=[datos] g=grad pol I=[D,x,y]
 syms t
 k=1;
 %hace un vector con 1 t t^2 etc
 while k<=g+1
     vT(1,k)=t^(k-1);
-
     k=k+1;
 end
 k=1;
 %hace una matriz con las derivadas del vector de arriba
 while k<=g-1
     vT(k+1,1:g+1)=diff(vT(k,1:g+1),t);
-
     k=k+1;
 end
 k=1;
