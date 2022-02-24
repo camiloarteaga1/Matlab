@@ -22,7 +22,7 @@ end
 plot(T,fun(T),'b');
 grid on
 hold on 
-plotFP(f,3);
+%plotFP(f,N);
 end
 
 function I=intFun_partesM(f,g)
@@ -39,8 +39,7 @@ while med(1)>=k
 end
 
 end
-
-function plotFP(f,N)
+function plotFP(f,N);
 syms t
 fun=f(:,1)';
 puntos=horzcat([0],f(:,2)');
@@ -49,15 +48,14 @@ P=[];
 l=[];
 L=[];
 k=1;
-while length(fun)>=k
+while length(fun)>k
 
     F(t)=f(k);
-    T=puntos(k):(puntos(k+1)-puntos(k))/( (2000/N) * ((puntos(k+1)-puntos(k))/p ) ):puntos(k+1);
-    P=horzcat(P,T);
+    T=puntos(k):(punttos(k+1)-puntos(k))/((2000/N)*(p/(punttos(k+1)-puntos(k)))):puntos(k+1);
+    P=horzcat(p,T);
     kk=1;
-    l=[];
     while kk<=length(T)
-        l(kk)=F(T(kk));
+        l(kk)=f(T(kk));
         
         kk=kk+1;
     end
@@ -68,10 +66,9 @@ k=1;
 pp=[];
 LL=[];
 while k<=N
-    pp=horzcat(pp,P+p*(k-1));
-    LL=horzcat(LL,L);
+    pp=[1,1]
     
     k=k+1;
 end
-plot(pp,LL,'r');
+
 end
