@@ -1,9 +1,9 @@
-function fun = Sefurier(f,N,type)
+function fun = Sefurier(f,N)
 % f es una funcion por ppartes que empieza en 0 [f1,a1;f2,a2;...fn,an], N es
 % el grado de la aproximacion y fun es la ecuacion resultante 
 %   f tiene que depender de t
 %type='p' es par type='i' impar type='n' ni par ni impar
-syms n t
+syms n t fun(t)
 med=size(f);
 p=f(med(1),2)-0;
 w=2*pi/p;
@@ -11,26 +11,16 @@ w=2*pi/p;
 an(n)=(2/p)*intFun_partesM(f,sin(w*n*t));
 bn(n)=(2/p)*intFun_partesM(f,cos(w*n*t));
 %se defune la funcion que se va ha empezar a armar
-if type~='i'
-    fun=subs(intFun_partesM(f,1),n,0)/p;
-else
-    fun=0;
-
-end
+fun(t)=subs(intFun_partesM(f,1),n,0)/p;
 k=1;
 T=0:3*p/2000:3*p;
 ann=0;
 bnn=0;
 %se arma la funcion
 while k<=N
-    if type=='p'
-        ann=an(k)*sin(k*w*t);
-    elseif type=='i'
-        bnn=bn(k)*cos(k*w*t);
-    else
         ann=an(k)*sin(k*w*t);
         bnn=bn(k)*cos(k*w*t);
-    end
+
     fun(t)=fun+ann+bnn;
     %en caso de que se quiera ver como a medida que se anhaden distintos
     %elemento la funcion va aproximando la grafica se puede utilizar lo que
@@ -65,7 +55,7 @@ end
 
 function plotFP(f,N)
 %funcion oscilatoria por partes 
-syms t
+syms t F(t)
 fun=f(:,1)';
 puntos=horzcat([0],f(:,2)');
 p=puntos(length(puntos));
@@ -76,7 +66,7 @@ k=1;
 while length(fun)>=k
     
 
-    F(t)=t-t+f(k);
+    F(t)=f(k);
 
     
     T=puntos(k):(puntos(k+1)-puntos(k))/( (2000/N) * ((puntos(k+1)-puntos(k))/p ) ):puntos(k+1);
