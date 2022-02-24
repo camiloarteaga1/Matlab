@@ -1,7 +1,8 @@
-function fun = Sefurier(f,N)
+function fun = Sefurier(f,N,type)
 % f es una funcion por ppartes que empieza en 0 [f1,a1;f2,a2;...fn,an], N es
 % el grado de la aproximacion y fun es la ecuacion resultante 
 %   f tiene que depender de t
+%type='p' es par type='i' impar type='n' ni par ni impar
 syms n t
 med=size(f);
 p=f(med(1),2)-0;
@@ -10,13 +11,27 @@ w=2*pi/p;
 an(n)=(2/p)*intFun_partesM(f,sin(w*n*t));
 bn(n)=(2/p)*intFun_partesM(f,cos(w*n*t));
 %se defune la funcion que se va ha empezar a armar
-fun=subs(intFun_partesM(f,1),n,0)/2;
+if type~='i'
+    fun=subs(intFun_partesM(f,1),n,0)/p;
+else
+    fun=0;
+
+end
 k=1;
 T=0:3*p/2000:3*p;
+ann=0;
+bnn=0;
 %se arma la funcion
 while k<=N
-
-    fun(t)=fun+an(k)*sin(k*w*t)+bn(k)*cos(k*w*t);
+    if type=='p'
+        ann=an(k)*sin(k*w*t);
+    elseif type=='i'
+        bnn=bn(k)*cos(k*w*t);
+    else
+        ann=an(k)*sin(k*w*t);
+        bnn=bn(k)*cos(k*w*t);
+    end
+    fun(t)=fun+ann+bnn;
     %en caso de que se quiera ver como a medida que se anhaden distintos
     %elemento la funcion va aproximando la grafica se puede utilizar lo que
     %esta comentado abajo
@@ -59,8 +74,11 @@ L=[];
 k=1;
 %se hacen los puntos en un periodo
 while length(fun)>=k
+    
 
-    F(t)=f(k);
+    F(t)=t-t+f(k);
+
+    
     T=puntos(k):(puntos(k+1)-puntos(k))/( (2000/N) * ((puntos(k+1)-puntos(k))/p ) ):puntos(k+1);
     P=horzcat(P,T);
     kk=1;
