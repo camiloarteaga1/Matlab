@@ -2,7 +2,6 @@ function fun = Sefurier(f,N)
 % f es una funcion por ppartes que empieza en 0 [f1,a1;f2,a2;...fn,an], N es
 % el grado de la aproximacion y fun es la ecuacion resultante 
 %   f tiene que depender de t
-%type='p' es par type='i' impar type='n' ni par ni impar
 syms n t fun(t)
 med=size(f);
 p=f(med(1),2)-0;
