@@ -7,8 +7,8 @@ med=size(f);
 p=f(med(1),2)-0;
 w=2*pi/p;
 %se definen los bn y an
-an(n)=(2/p)*intFun_partesM(f,sin(w*n*t));
-bn(n)=(2/p)*intFun_partesM(f,cos(w*n*t));
+an(n)=(2/p)*intFun_partesM(f,cos(w*n*t));
+bn(n)=(2/p)*intFun_partesM(f,sin(w*n*t));
 %se defune la funcion que se va ha empezar a armar
 fun(t)=subs(intFun_partesM(f,1),n,0)/p;
 k=1;
@@ -17,8 +17,8 @@ ann=0;
 bnn=0;
 %se arma la funcion
 while k<=N
-        ann=an(k)*sin(k*w*t);
-        bnn=bn(k)*cos(k*w*t);
+        ann=an(k)*cos(k*w*t);
+        bnn=bn(k)*sin(k*w*t);
 
     fun(t)=fun+ann+bnn;
     %en caso de que se quiera ver como a medida que se anhaden distintos
