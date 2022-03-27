@@ -11,7 +11,7 @@ function [datosx,datosy] = diagramaBDcasero(x,y,g,l1,l2,n,type)
     ang=[];
     k=1;
     frec=logspace(l1,l2,n);
-    if type=='f'
+    if type=='m'
     
         while k<=length(frec)
             db(k)=eval(20*log10( abs( g( frec(k)*i*2*pi ) ) ) );
@@ -39,8 +39,7 @@ function [datosx,datosy] = diagramaBDcasero(x,y,g,l1,l2,n,type)
         
 
     else
-        disp('diagrama de frecuencias [f] diagrama de fase [a]')
-        exit
+        error('diagrama de magnitud [m] diagrama de fase [a]')
     end
     xlabel('frequency (hz)');
     title('bode diagram')
